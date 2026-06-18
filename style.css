@@ -127,3 +127,20 @@ button:hover{
     color:green;
     font-weight:bold;
 }
+.history-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.history-table th,
+.history-table td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:left;
+}
+
+.history-table th{
+    background:#003366;
+    color:white;
+}
