@@ -312,31 +312,40 @@ window.askAI = function () {
 };
 let transfers = [];
 
-function transferMoney() {
+{
+  
 
-    let receiver =
-    document.getElementById("receiver").value;
+function transferMoney(){
 
-    let amount =
-    document.getElementById("amount").value;
+let receiver =
+document.getElementById("receiver").value;
 
-    if(receiver === "" || amount === ""){
-        alert("Enter transfer details");
-        return;
-    }
+let amount =
+document.getElementById("amount").value;
 
-    let today =
-    new Date().toLocaleDateString();
+let ref =
+"CB" + Date.now();
 
-    transfers.push({
-        date: today,
-        receiver: receiver,
-        amount: amount
-    });
+document.getElementById(
+"receiptReceiver"
+).innerHTML =
+"Receiver: " + receiver;
 
-    let table =
-    document.getElementById("historyTable");
+document.getElementById(
+"receiptAmount"
+).innerHTML =
+"Amount: ₦" + amount;
 
+document.getElementById(
+"receiptRef"
+).innerHTML =
+"Reference: " + ref;
+
+document.getElementById(
+"receiptModal"
+).style.display="flex";
+
+}
     table.innerHTML = "";
 
     transfers.forEach(t => {
