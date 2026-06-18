@@ -179,3 +179,35 @@ button:hover{
     justify-content:space-between;
     margin-top:20px;
 }
+.dark-btn{
+    background:#1e3a8a;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.dark-mode{
+    background:#111827;
+    color:white;
+}
+
+.dark-mode .card,
+.dark-mode .profile-card,
+.dark-mode .transfer-card,
+.dark-mode .ai-card{
+    background:#1f2937;
+    color:white;
+}
+
+.dark-mode input{
+    background:#374151;
+    color:white;
+    border:1px solid #555;
+}
+
+.dark-mode table{
+    color:white;
+}
