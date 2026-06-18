@@ -474,6 +474,24 @@ function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
 }
 </script>
-    
+<div id="receiptModal" class="receipt-modal">
+
+    <div class="receipt-box">
+
+        <h2>Transfer Successful</h2>
+
+        <p id="receiptReceiver"></p>
+
+        <p id="receiptAmount"></p>
+
+        <p id="receiptRef"></p>
+
+        <button onclick="closeReceipt()">
+            Close
+        </button>
+
+    </div>
+
+</div>    
 </body>
 </html>
