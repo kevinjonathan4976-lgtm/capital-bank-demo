@@ -492,3 +492,27 @@ window.loadTransferHistory = function() {
     });
 
 };
+
+window.showReceipt = function(receiver, amount){
+
+    const ref = "CB" + Date.now();
+
+    document.getElementById("receiptReceiver").innerText =
+        "Receiver: " + receiver;
+
+    document.getElementById("receiptAmount").innerText =
+        "Amount: ₦" + amount.toLocaleString();
+
+    document.getElementById("receiptRef").innerText =
+        "Reference: " + ref;
+
+    document.getElementById("receiptModal").style.display =
+        "flex";
+};
+
+window.closeReceipt = function(){
+
+    document.getElementById("receiptModal").style.display =
+        "none";
+
+};
