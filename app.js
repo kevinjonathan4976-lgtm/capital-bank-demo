@@ -195,7 +195,9 @@ window.transferMoney = function () {
     amount: amount,
     date: new Date().toLocaleString()
   });
-
+  
+showReceipt(receiver, amount);
+  
   localStorage.setItem(
     "currentUser",
     JSON.stringify(currentUser)
