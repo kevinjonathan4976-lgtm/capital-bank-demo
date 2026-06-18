@@ -3,18 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
+<title>Capital Bank Dashboard</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body onload="loadDashboard()">
 
 <div class="container">
 
-    <h1>Capital Bank</h1>
+    <div class="logo-section">
+        <img src="logo.png" alt="Capital Bank Logo" class="logo">
+        <h1>CAPITAL BANK</h1>
+        <p>Digital Banking Platform</p>
+    </div>
 
     <div class="card">
         <h3>Account Holder</h3>
         <p id="username"></p>
+    </div>
+
+    <div class="card">
+        <h3>Account Details</h3>
+        <p>Account Type: Savings</p>
+        <p>Bank: Capital Bank</p>
+        <p>Status: Active</p>
     </div>
 
     <div class="card">
@@ -30,9 +42,15 @@
     <div class="card">
         <h3>Transfer Money</h3>
 
-        <input type="text" id="receiver" placeholder="Receiver Name">
+        <input
+            type="text"
+            id="receiver"
+            placeholder="Receiver Name">
 
-        <input type="number" id="amount" placeholder="Amount">
+        <input
+            type="number"
+            id="amount"
+            placeholder="Amount">
 
         <button onclick="transferMoney()">
             Transfer
@@ -41,11 +59,29 @@
 
     <div class="card">
         <h3>Transaction History</h3>
-
         <ul id="history"></ul>
     </div>
 
-    <button onclick="logout()">Logout</button>
+    <div class="card">
+        <h3>Capital AI Assistant</h3>
+
+        <p id="aiMessage">
+            Welcome to Capital Bank. How can I help you today?
+        </p>
+
+        <input
+            type="text"
+            id="aiInput"
+            placeholder="Ask about balance, savings or transfers">
+
+        <button onclick="askAI()">
+            Ask AI
+        </button>
+    </div>
+
+    <button onclick="logout()">
+        Logout
+    </button>
 
 </div>
 
