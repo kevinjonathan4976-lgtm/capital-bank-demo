@@ -29,16 +29,20 @@
 <!-- MAIN DASHBOARD -->
 <div class="dashboard">
 
-<div class="dashboard-container">
+<div class="top-header">
+    <img src="logo.png" class="logo" alt="Capital Bank">
 
-    <div class="top-header">
-        <img src="logo.png" class="logo" alt="Capital Bank">
+    <div>
+        <h1>Capital Bank</h1>
+        <p>Digital Banking Platform</p>
 
-        <div>
-            <h1>Capital Bank</h1>
-            <p>Digital Banking Platform</p>
-        </div>
+        <!-- Dark Mode Button -->
+        <button onclick="toggleDarkMode()" class="dark-btn">
+            🌙 Dark Mode
+        </button>
+
     </div>
+</div>
 
     <!-- PROFILE SECTION -->
     <div class="profile-card">
@@ -446,7 +450,7 @@ function askAI() {
     let question =
     document.getElementById("userQuestion").value.toLowerCase();
 
-    let response =
+    let response =llllll
     "Please contact customer support.";
 
     if(question.includes("balance")){
@@ -466,6 +470,10 @@ function logout() {
     window.location.href = "login.html";
 }
 </script>
-
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+</script>
+    
 </body>
 </html>
