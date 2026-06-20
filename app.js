@@ -637,3 +637,88 @@ window.depositMoney = function () {
     "dashboard.html";
 
 };
+
+/* ===========================
+   WITHDRAW
+=========================== */
+
+window.withdrawMoney = function () {
+
+  let amount =
+    Number(
+      document.getElementById(
+        "withdrawAmount"
+      ).value
+    );
+
+  let currentUser =
+    JSON.parse(
+      localStorage.getItem(
+        "currentUser"
+      )
+    );
+
+  if (!currentUser) {
+
+    alert("Login Required");
+    return;
+
+  }
+
+  if (amount <= 0) {
+
+    alert("Enter Valid Amount");
+    return;
+
+  }
+
+  if (amount > currentUser.balance) {
+
+    alert("Insufficient Balance");
+    return;
+
+  }
+
+  currentUser.balance -= amount;
+
+  currentUser.transactions.push({
+
+    type: "Withdraw",
+    amount: amount,
+    date: new Date().toLocaleString()
+
+  });
+
+  localStorage.setItem(
+    "currentUser",
+    JSON.stringify(currentUser)
+  );
+
+  let allUsers =
+    JSON.parse(
+      localStorage.getItem("users")
+    ) || [];
+
+  let index =
+    allUsers.findIndex(
+      u => u.email === currentUser.email
+    );
+
+  if (index !== -1) {
+
+    allUsers[index] =
+      currentUser;
+
+    localStorage.setItem(
+      "users",
+      JSON.stringify(allUsers)
+    );
+
+  }
+
+  alert("Withdrawal Successful");
+
+  location.href =
+    "dashboard.html";
+
+};
