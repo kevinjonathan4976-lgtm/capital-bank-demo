@@ -207,12 +207,12 @@ window.loadDashboard = function () {
 
   if (balance)
     balance.innerText =
-      "₦" +
+      "$" +
       currentUser.balance.toLocaleString();
 
   if (savings)
     savings.innerText =
-      "₦" +
+      "$" +
       currentUser.savings.toLocaleString();
 
   const history =
@@ -367,7 +367,7 @@ window.loadAdmin = function () {
   document.getElementById(
     "totalFunds"
   ).innerText =
-    "₦" +
+    "$" +
     total.toLocaleString();
 
 };
@@ -396,7 +396,7 @@ window.askAI = function () {
   if (input.includes("balance")) {
 
     output.innerText =
-      "Your available balance is ₦" +
+      "Your available balance is $" +
       currentUser.balance.toLocaleString();
 
   } else if (
@@ -404,7 +404,7 @@ window.askAI = function () {
   ) {
 
     output.innerText =
-      "Your savings balance is ₦" +
+      "Your savings balance is $" +
       currentUser.savings.toLocaleString();
 
   } else if (
@@ -488,7 +488,7 @@ window.showReceipt =
     document.getElementById(
       "receiptAmount"
     ).innerText =
-      "Amount: ₦" +
+      "Amount: $" +
       Number(amount).toLocaleString();
 
     document.getElementById(
