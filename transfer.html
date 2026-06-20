@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transfer Funds</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="bank-card">
+
+        <h2>Transfer Funds</h2>
+
+        <input type="text" id="receiver" placeholder="Recipient Name">
+        <input type="text" id="accountNumber" placeholder="Account Number">
+        <input type="text" id="bankName" placeholder="Bank Name">
+        <input type="number" id="amount" placeholder="Amount">
+        <input type="text" id="narration" placeholder="Narration">
+
+        <button onclick="transferMoney()">
+            Send Money
+        </button>
+
+        <br><br>
+
+        <a href="dashboard.html" class="btn">
+            Back To Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
