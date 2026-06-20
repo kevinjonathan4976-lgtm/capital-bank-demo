@@ -379,7 +379,7 @@ window.loadAdmin = function () {
 window.askAI = function () {
 
   const input =
-    document.getElementById("aiInput")
+    document.getElementById("userQuestion")
       .value
       .toLowerCase();
 
@@ -510,6 +510,11 @@ window.closeReceipt =
       "none";
 
   };
+function applyLoan() {
+    alert("Loan application submitted.");
+}
+
+window.applyLoan = applyLoan;
 
 /* ===========================
    TRANSFER HISTORY
