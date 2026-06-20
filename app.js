@@ -215,28 +215,26 @@ window.loadDashboard = function () {
       "$" +
       currentUser.savings.toLocaleString();
 
-  const history =
-    document.getElementById("history");
+const historyTable =
+  document.getElementById("historyTable");
 
-  if (history) {
+if (historyTable) {
 
-    history.innerHTML = "";
+  historyTable.innerHTML = "";
 
-    currentUser.transactions.forEach(t => {
+  currentUser.transactions.forEach(t => {
 
-      history.innerHTML += `
-        <li>
-          ${t.type}
-          - ₦${t.amount.toLocaleString()}
-          (${t.date})
-        </li>
-      `;
+    historyTable.innerHTML += `
+      <tr>
+        <td>${t.date}</td>
+        <td>${t.type}</td>
+        <td>₦${t.amount.toLocaleString()}</td>
+      </tr>
+    `;
 
-    });
+  });
 
-  }
-
-};
+}
 
 /* ===========================
    TRANSFER
