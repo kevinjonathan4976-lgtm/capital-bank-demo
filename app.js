@@ -811,3 +811,46 @@ window.scheduleTransfer = function () {
 
   location.href = "dashboard.html";
 };
+
+/* ===========================
+   STATEMENT PAGE
+=========================== */
+
+window.loadStatement = function () {
+  window.print();
+};
+
+  let currentUser =
+    JSON.parse(
+      localStorage.getItem("currentUser")
+    );
+
+  if (!currentUser) {
+    location.href = "login.html";
+    return;
+  }
+
+  document.getElementById("statementName").innerText =
+    "Account Holder: " + currentUser.fullname;
+
+  document.getElementById("statementBalance").innerText =
+    "Current Balance: $" + currentUser.balance.toLocaleString();
+
+  const table =
+    document.getElementById("statementTable");
+
+  table.innerHTML = "";
+
+  currentUser.transactions.forEach(t => {
+
+    table.innerHTML += `
+      <tr>
+        <td>${t.date}</td>
+        <td>${t.type}</td>
+        <td>₦${t.amount.toLocaleString()}</td>
+      </tr>
+    `;
+
+  });
+
+};
