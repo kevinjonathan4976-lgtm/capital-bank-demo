@@ -299,3 +299,46 @@ button:hover,
     margin-left:270px;
     padding:20px;
 }
+
+.menu-btn{
+    position:fixed;
+    top:15px;
+    left:15px;
+    font-size:30px;
+    cursor:pointer;
+    z-index:1001;
+}
+
+.sidebar{
+    position:fixed;
+    left:-260px;
+    top:0;
+    width:250px;
+    height:100%;
+    background:#003366;
+    padding:20px;
+    transition:0.3s;
+    z-index:1000;
+}
+
+.sidebar.active{
+    left:0;
+}
+
+.sidebar h2{
+    color:white;
+    text-align:center;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    margin:6px 0;
+    border-radius:8px;
+}
+
+.sidebar a:hover{
+    background:#1f3c88;
+}
