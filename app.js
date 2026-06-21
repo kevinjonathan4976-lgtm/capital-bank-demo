@@ -889,3 +889,12 @@ window.showNotifications = function () {
   );
 
 };
+
+window.toggleMenu = function () {
+
+  document
+    .getElementById("sidebar")
+    .classList
+    .toggle("active");
+
+};
