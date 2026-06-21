@@ -879,3 +879,13 @@ window.showCardDetails = function () {
   );
 
 };
+
+window.showNotifications = function () {
+
+  alert(
+    "Salary Received\n" +
+    "Transfer Successful\n" +
+    "Security Update Available"
+  );
+
+};
