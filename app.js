@@ -865,3 +865,17 @@ window.loadStatement = function () {
 window.downloadStatement = function () {
   window.print();
 };
+
+/* ===========================
+   CARD DETAILS
+=========================== */
+
+window.showCardDetails = function () {
+
+  alert(
+    "Card Holder: Jason Beghie\n" +
+    "Card Number: **** **** **** 4582\n" +
+    "Expiry: 09/28"
+  );
+
+};
