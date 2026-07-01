@@ -500,24 +500,34 @@ Manage Security
 </div>
 
 </div>
-<!-- AI ASSISTANT -->
+<!-- CAPITAL BANK CHATBOT -->
+
 <div class="bank-card">
 
-<h2>Capital AI Assistant</h2>
+    <h2>💬 Capital Bank Chatbot</h2>
 
-<p id="aiMessage">
-Welcome to Capital Bank.
-How can I help you today?
-</p>
+    <div id="chatBox" class="chat-box">
 
-<input
-type="text"
-id="userQuestion"
-placeholder="Ask AI anything about banking">
+        <div class="bot-message">
+            Hello! Welcome to Capital Bank.<br>
+            Ask me about:
+            <br>• Balance
+            <br>• Savings
+            <br>• Transfer
+            <br>• Loan
+            <br>• Statement
+        </div>
 
-<button onclick="askAI()">
-Ask AI
-</button>
+    </div>
+
+    <input
+        type="text"
+        id="chatInput"
+        placeholder="Type your question...">
+
+    <button onclick="sendChat()">
+        Send
+    </button>
 
 </div>
 
