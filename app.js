@@ -955,3 +955,73 @@ window.loadNotifications = function () {
     });
 
 };
+
+window.sendChat = function () {
+
+    const input = document.getElementById("chatInput");
+    const chatBox = document.getElementById("chatBox");
+
+    if (!input.value.trim()) return;
+
+    const question = input.value.toLowerCase();
+
+    chatBox.innerHTML += `
+        <div class="user-message">
+            ${input.value}
+        </div>
+    `;
+
+    let reply = "";
+
+    let currentUser =
+        JSON.parse(localStorage.getItem("currentUser"));
+
+    if (question.includes("balance")) {
+
+        reply = "Your current balance is $" +
+        currentUser.balance.toLocaleString();
+
+    }
+
+    else if (question.includes("savings")) {
+
+        reply = "Your savings balance is $" +
+        currentUser.savings.toLocaleString();
+
+    }
+
+    else if (question.includes("transfer")) {
+
+        reply = "Open the Transfer page from the menu to send money.";
+
+    }
+
+    else if (question.includes("loan")) {
+
+        reply = "You can apply for a loan from the Loan Information section.";
+
+    }
+
+    else if (question.includes("statement")) {
+
+        reply = "Visit the Statement page to print or download your account statement.";
+
+    }
+
+    else {
+
+        reply = "Sorry, I don't understand that yet.";
+
+    }
+
+    chatBox.innerHTML += `
+        <div class="bot-message">
+            ${reply}
+        </div>
+    `;
+
+    input.value = "";
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+};
