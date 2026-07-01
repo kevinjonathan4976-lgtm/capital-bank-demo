@@ -1,484 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Capital Bank Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body onload="loadDashboard()">
 
 <!-- Menu Button -->
 <div class="menu-btn" onclick="toggleMenu()">
-    ☰
+☰
 </div>
 
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
-  <h2>Capital Bank</h2>
 
-  <a href="dashboard.html">🏠 Dashboard</a>
-  <a href="deposit.html">💰 Deposit</a>
-  <a href="withdraw.html">💵 Withdraw</a>
-  <a href="transfer.html">🔂 Transfer</a>
-  <a href="history.html">📜 History</a>
-  <a href="statement.html">📄 Statement</a>
-  <a href="schedule.html">📅 Schedule</a>
-  <a href="#" onclick="logout()">🚪 Sign Out</a>
+<h2>Capital Bank</h2>
+
+<a href="dashboard.html">🏠 Dashboard</a>
+<a href="deposit.html">💰 Deposit</a>
+<a href="withdraw.html">💵 Withdraw</a>
+<a href="transfer.html">🔂 Transfer</a>
+<a href="history.html">📜 History</a>
+<a href="statement.html">📄 Statement</a>
+<a href="schedule.html">📅 Schedule</a>
+
+<a href="#" onclick="logout()">🚪 Sign Out</a>
 
 </div>
 
-<!-- MAIN DASHBOARD -->
+<!-- Dashboard -->
 <div class="dashboard">
 
+<!-- Header -->
 <div class="top-header">
-    <img src="logo.png" class="logo" alt="Capital Bank">
 
-    <div>
-        <h1>Capital Bank</h1>
-        <p>Digital Banking Platform</p>
+<img src="logo.png"
+class="logo"
+alt="Capital Bank Logo">
 
-        <!-- Dark Mode Button -->
-        <button onclick="toggleDarkMode()" class="dark-btn">
-            🌙 Dark Mode
-        </button>
+<div>
 
-    </div>
+<h1>Capital Bank</h1>
+
+<p>Digital Banking Platform</p>
+
+<button
+class="dark-btn"
+onclick="toggleDarkMode()">
+
+🌙 Dark Mode
+
+</button>
+
 </div>
 
-    <!-- PROFILE SECTION -->
-    <div class="profile-card">
+</div>
 
-        <div class="profile-info">
-            <h2>Welcome Back, Jason Beghie</h2>
-            <p>Last Login: 18 June 2026 • 11:45 AM</p>
-            <p>Account Number: 1029384756</p>
-        </div>
+<!-- Profile -->
+<div class="profile-card">
 
-        <div class="profile-actions">
-            <button> 🔔 Notifications</button>
-            <button onclick="logout()">🚪 Logout</button>
-        </div>
+<div class="profile-info">
 
-    </div>
+<h2>
+Welcome Back,Jason Beghe
+<span id="username"></span>
+</h2>
 
-    <div class="welcome-card">
-        <h2>Welcome Back</h2>
-        <p id="username"></p>
-        <span class="status">Account Status: Active</span>
-    </div>
+<p>
+Last Login:
+18 June 2026 • 11:45 AM
+</p>
 
-    <!-- ACCOUNT CARDS -->
-    <div class="cards-grid">
+<p>
+Account Number:
+<span id="accountNumber">
+1029384756
+</span>
+</p>
 
-        <div class="bank-card balance-card">
-            <h3>Available Balance</h3>
-            <h1 id="balance">$23,000,000</h1>
-        </div>
+</div>
 
-        <div class="bank-card">
-            <h3>Savings Account</h3>
-            <p id="savings">$10,000,000</p>
-        </div>
+<div class="profile-actions">
 
-        <div class="bank-card">
-            <h3>Account Number</h3>
-            <p>1029384756</p>
-        </div>
+<button onclick="showNotifications()">
+🔔 Notifications
+</button>
 
-        <div class="bank-card">
-            <h3>Account Type</h3>
-            <p>Savings Account</p>
-        </div>
+<button onclick="logout()">
+🚪 Logout
+</button>
 
-  </div>
+</div>
 
+</div>
+
+<!-- Welcome Card -->
+<div class="welcome-card">
+
+<h2>Account Overview</h2>
+
+<p>
+Welcome back to your secure banking dashboard.
+</p>
+
+<span class="status">
+✅ Account Status: Active
+</span>
+
+</div>
+
+<!-- Account Cards -->
+<div class="cards-grid">
+
+<div class="bank-card balance-card">
+
+<h3>Available Balance</h3>
+
+<h1 id="balance"></h1>
+
+</div>
+
+<div class="bank-card">
+
+<h3>Savings Account</h3>
+
+<p id="savings"></p>
+
+</div>
+
+<div class="bank-card">
+
+<h3>Account Number</h3>
+
+<p id="accountNumberCard">
+1029384756
+</p>
+
+</div>
+
+<div class="bank-card">
+
+<h3>Account Type</h3>
+
+<p>Savings Account</p>
+
+</div>
+
+</div>
 <!-- ACCOUNTS OVERVIEW -->
 <div class="section">
 
-    <h2>Accounts Overview</h2>
+<h2>Accounts Overview</h2>
 
-    <div class="cards-grid">
+<div class="cards-grid">
 
-        <div class="bank-card">
-            <h3>Checking Account</h3>
-            <p>$5,500,000</p>
-            <small>Account No: 1029384701</small>
-        </div>
+<div class="bank-card">
+<h3>Checking Account</h3>
+<p>$5,500,000</p>
+<small>Account No: 1029384701</small>
+</div>
 
-        <div class="bank-card">
-            <h3>Savings Account</h3>
-            <p>$10,000,000</p>
-            <small>Account No: 1029384756</small>
-        </div>
+<div class="bank-card">
+<h3>Savings Account</h3>
+<p id="overviewSavings"></p>
+<small>Account No: 1029384756</small>
+</div>
 
-        <div class="bank-card">
-            <h3>Domiciliary Account</h3>
-            <p>$15,250</p>
-            <small>USD Account</small>
-        </div>
+<div class="bank-card">
+<h3>Domiciliary Account</h3>
+<p>$15,250</p>
+<small>USD Account</small>
+</div>
 
-    </div>
+</div>
 
 </div>
 
 <!-- QUICK ACTIONS -->
 <div class="section">
 
-    <h2>Quick Actions</h2>
+<h2>Quick Actions</h2>
 
-    <div class="cards-grid">
+<div class="cards-grid">
 
-        <div class="bank-card">
-            <h3>📱 Airtime</h3>
-            <p>Buy Airtime</p>
-        </div>
+<div class="bank-card">
+<h3>📱 Airtime</h3>
+<p>Buy Airtime</p>
+</div>
 
-        <div class="bank-card">
-            <h3>💡 Bills</h3>
-            <p>Pay Bills</p>
-        </div>
+<div class="bank-card">
+<h3>💡 Bills</h3>
+<p>Pay Bills</p>
+</div>
 
-        <div class="bank-card">
-            <h3>🏦 Transfer</h3>
-            <p>Send Money</p>
-        </div>
+<div class="bank-card">
+<h3>🏦 Transfer</h3>
+<p>Send Money</p>
+</div>
 
-        <div class="bank-card">
-            <h3>📄 Statement</h3>
-            <p>Download Statement</p>
-        </div>
+<div class="bank-card">
+<h3>📄 Statement</h3>
+<p>Download Statement</p>
+</div>
 
-    </div>
+</div>
 
 </div>
 
 <!-- ACCOUNT SUMMARY -->
 <div class="section">
 
-    <h2>Account Summary</h2>
+<h2>Account Summary</h2>
 
-    <div class="cards-grid">
+<div class="cards-grid">
 
-        <div class="bank-card">
-            <h3>Total Assets</h3>
-            <p>$38,000,000</p>
-        </div>
+<div class="bank-card">
+<h3>Total Assets</h3>
+<p id="totalAssets">$38,000,000</p>
+</div>
 
-        <div class="bank-card">
-            <h3>Total Loans</h3>
-            <p>$5,000,000</p>
-        </div>
+<div class="bank-card">
+<h3>Total Loans</h3>
+<p>$5,000,000</p>
+</div>
 
-        <div class="bank-card">
-            <h3>Investments</h3>
-            <p>$8,000,000</p>
-        </div>
-
-    </div>
+<div class="bank-card">
+<h3>Investments</h3>
+<p>$8,000,000</p>
+</div>
 
 </div>
-    
+
+</div>
+
 <!-- QUICK TRANSFER -->
 <div class="bank-card">
 
-    <h2>Fund Transfer</h2>
+<h2>Fund Transfer</h2>
 
-    <input type="text"
-           id="receiver"
-           placeholder="Recipient Name">
+<input
+type="text"
+id="receiver"
+placeholder="Recipient Name">
 
-    <input type="text"
-           id="accountNumber"
-           placeholder="Account Number">
+<input
+type="text"
+id="accountNumber"
+placeholder="Account Number">
 
-    <input type="text"
-           id="bankName"
-           placeholder="Bank Name">
+<input
+type="text"
+id="bankName"
+placeholder="Bank Name">
 
-    <input type="number"
-           id="amount"
-           placeholder="Amount">
+<input
+type="number"
+id="amount"
+placeholder="Amount">
 
-    <input type="text"
-           id="narration"
-           placeholder="Narration">
+<input
+type="text"
+id="narration"
+placeholder="Narration">
 
-    <button onclick="transferMoney()">
-        Transfer Funds
-    </button>
+<button onclick="transferMoney()">
+Transfer Funds
+</button>
 
 </div>
-    
-    <!-- TRANSFER HISTORY -->
-    <div class="bank-card">
+<!-- TRANSFER HISTORY -->
+<div class="bank-card">
 
-        <h2>Transfer History</h2>
+<h2>Transfer History</h2>
 
-        <table class="history-table">
+<table class="history-table">
 
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Receiver</th>
-                    <th>Amount</th>
-                </tr>
-            </thead>
+<thead>
+<tr>
+<th>Date</th>
+<th>Transaction</th>
+<th>Amount</th>
+</tr>
+</thead>
 
-            <tbody id="historyTable">
-            </tbody>
+<tbody id="historyTable">
+</tbody>
 
-        </table>
+</table>
 
-    </div>
+</div>
 
-<!-- CARD DISPLAY -->
+<!-- MY CARD -->
 <div class="section">
 
-    <h2>My Cards</h2>
+<h2>My Card</h2>
 
-    <div class="premium-card"
-onclick="showCardDetails()">
-      
-        <div class="card-top">
-            <span>CAPITAL BANK</span>
-            <span>VISA</span>
-        </div>
+<div class="premium-card" onclick="showCardDetails()">
 
-        <div class="chip">💳</div>
+<div class="card-top">
+<span>CAPITAL BANK</span>
+<span>VISA</span>
+</div>
 
-        <h3 class="card-number">
-            **** **** **** 4582
-        </h3>
+<div class="chip">💳</div>
 
-        <div class="card-bottom">
+<h3 class="card-number">
+**** **** **** 4582
+</h3>
 
-            <div>
-                <small>CARD HOLDER</small>
-                <p>Jason Beghie</p>
-            </div>
+<div class="card-bottom">
 
-            <div>
-                <small>EXPIRES</small>
-                <p>09/28</p>
-            </div>
+<div>
+<small>CARD HOLDER</small>
+<p id="cardHolder">Capital Bank Customer</p>
+</div>
 
-        </div>
+<div>
+<small>EXPIRES</small>
+<p>09/28</p>
+</div>
 
-    </div>
+</div>
+
+</div>
 
 </div>
 
 <!-- BENEFICIARIES -->
 <div class="section">
 
-    <h2>Saved Beneficiaries</h2>
+<h2>Saved Beneficiaries</h2>
 
-    <div class="cards-grid">
+<div class="cards-grid">
 
-        <div class="bank-card">
-            <h3>John Williams</h3>
-            <p>1029384756</p>
-        </div>
+<div class="bank-card">
+<h3>John Williams</h3>
+<p>1029384756</p>
+</div>
 
-        <div class="bank-card">
-            <h3>Sarah Johnson</h3>
-            <p>8756341290</p>
-        </div>
+<div class="bank-card">
+<h3>Sarah Johnson</h3>
+<p>8756341290</p>
+</div>
 
-        <div class="bank-card">
-            <h3>Michael Brown</h3>
-            <p>9876543210</p>
-        </div>
+<div class="bank-card">
+<h3>Michael Brown</h3>
+<p>9876543210</p>
+</div>
 
-    </div>
+</div>
 
 </div>
 
 <!-- LOAN INFORMATION -->
 <div class="section">
 
-    <h2>Loan Information</h2>
+<h2>Loan Information</h2>
 
-    <div class="bank-card">
+<div class="bank-card">
 
-        <p><strong>Loan Status:</strong> Active</p>
+<p><strong>Status:</strong> Active</p>
 
-        <p><strong>Outstanding Balance:</strong> $5,000,000</p>
+<p><strong>Outstanding Balance:</strong> $5,000,000</p>
 
-        <p><strong>Monthly Repayment:</strong> $150,000</p>
+<p><strong>Monthly Repayment:</strong> $150,000</p>
 
-        <button onclick="applyLoan()">
-            Apply For New Loan
-        </button>
+<button onclick="applyLoan()">
+Apply For New Loan
+</button>
 
-    </div>
+</div>
 
 </div>
 
 <!-- FIXED DEPOSIT -->
 <div class="section">
 
-    <h2>Fixed Deposit</h2>
+<h2>Fixed Deposit</h2>
 
-    <div class="bank-card">
+<div class="bank-card">
 
-        <p><strong>Deposit Amount:</strong> $3,000,000</p>
+<p><strong>Deposit Amount:</strong> $3,000,000</p>
 
-        <p><strong>Interest Rate:</strong> 10% Per Year</p>
+<p><strong>Interest:</strong> 10% Per Year</p>
 
-        <p><strong>Maturity Date:</strong> 15 December 2027</p>
+<p><strong>Maturity:</strong> 15 December 2027</p>
 
-    </div>
+</div>
 
 </div>
 
 <!-- CUSTOMER SUPPORT -->
 <div class="section">
 
-    <h2>Customer Support</h2>
+<h2>Customer Support</h2>
 
-    <div class="bank-card">
+<div class="bank-card">
 
-        <p>📞 +234 800 000 0000</p>
+<p>📞 +234 800 000 0000</p>
 
-        <p>📧 support@capitalbank.com</p>
+<p>📧 support@capitalbank.com</p>
 
-        <button>Live Chat</button>
-
-    </div>
+<button>
+Live Chat
+</button>
 
 </div>
 
-<!-- SECURITY CENTER -->
+</div>
+
+<!-- SECURITY -->
 <div class="section">
 
-    <h2>Security Center</h2>
+<h2>Security Center</h2>
 
-    <div class="bank-card">
+<div class="bank-card">
 
-        <p>✅ Two-Factor Authentication Enabled</p>
+<p>✅ Two-Factor Authentication Enabled</p>
 
-        <p>✅ Last Password Change: 15 June 2026</p>
+<p>✅ Password Protected</p>
 
-        <button>Manage Security</button>
+<button>
+Manage Security
+</button>
 
-    </div>
+</div>
 
 </div>
 
 <!-- EXCHANGE RATES -->
 <div class="section">
 
-    <h2>Exchange Rates</h2>
+<h2>Exchange Rates</h2>
 
-    <div class="bank-card">
+<div class="bank-card">
 
-        <p>USD: $1,600</p>
+<p>USD: ₦1,600</p>
 
-        <p>EUR: $1,730</p>
+<p>EUR: ₦1,730</p>
 
-        <p>GBP: $2,020</p>
-
-    </div>
+<p>GBP: ₦2,020</p>
 
 </div>
 
-    <!-- RECENT ACTIVITY -->
-    <div class="section">
-
-        <h2>Recent Activity</h2>
-
-        <ul class="activity-feed">
-
-            <li>✅ Transfer Sent - $50,000</li>
-            <li>✅ Salary Received - $2,000,000</li>
-            <li>✅ Card Payment - $4,500</li>
-            <li>✅ Airtime Purchase - $2,000</li>
-
-        </ul>
-
-    </div>
-
-    <!-- SPENDING ANALYTICS -->
-    <div class="section">
-
-        <h2>Monthly Spending</h2>
-
-        <div class="chart">
-
-            <div class="bar" style="width:70%">January</div>
-            <div class="bar" style="width:90%">February</div>
-            <div class="bar" style="width:50%">March</div>
-            <div class="bar" style="width:80%">April</div>
-
-        </div>
-
-    </div>
-
-    <!-- NOTIFICATIONS -->
-    <div class="section">
-
-        <h2>Notifications</h2>
-
-        <div class="notification">
-            🔔 Salary payment received.
-        </div>
-
-        <div class="notification">
-            🔔 Transfer completed successfully.
-        </div>
-
-        <div class="notification">
-            🔔 New security update available.
-        </div>
-
-    </div>
-
-    <!-- AI ASSISTANT -->
-    <div class="bank-card">
-
-        <h2>Capital AI Assistant</h2>
-
-        <p id="aiMessage">
-            Welcome to Capital Bank. How can I help you today?
-        </p>
-
-        <input
-            type="text"
-            id="userQuestion"
-            placeholder="Ask AI anything about banking">
-
-        <button onclick="askAI()">
-            Ask AI
-        </button>
-
-    </div>
-
-</div>
 </div>
 
-<script type="module" src="app.js"></script>
+<!-- RECENT ACTIVITY -->
+<div class="section">
 
+<h2>Recent Activity</h2>
+
+<ul class="activity-feed">
+
+<li>✅ Transfer Completed</li>
+<li>✅ Salary Received</li>
+<li>✅ Card Payment</li>
+<li>✅ Airtime Purchase</li>
+
+</ul>
+
+</div>
+
+<!-- MONTHLY SPENDING -->
+<div class="section">
+
+<h2>Monthly Spending</h2>
+
+<div class="chart">
+
+<div class="bar" style="width:70%">January</div>
+
+<div class="bar" style="width:90%">February</div>
+
+<div class="bar" style="width:50%">March</div>
+
+<div class="bar" style="width:80%">April</div>
+
+</div>
+
+</div>
+
+<!-- NOTIFICATIONS -->
+<div class="section">
+
+<h2>Notifications</h2>
+
+<div class="notification">
+🔔 Salary Payment Received
+</div>
+
+<div class="notification">
+🔔 Transfer Successful
+</div>
+
+<div class="notification">
+🔔 Security Update Available
+</div>
+
+</div>
+<!-- AI ASSISTANT -->
+<div class="bank-card">
+
+<h2>Capital AI Assistant</h2>
+
+<p id="aiMessage">
+Welcome to Capital Bank.
+How can I help you today?
+</p>
+
+<input
+type="text"
+id="userQuestion"
+placeholder="Ask AI anything about banking">
+
+<button onclick="askAI()">
+Ask AI
+</button>
+
+</div>
+
+<!-- Footer -->
+<footer>
+
+<p>
+©️ 2026 Capital Bank.
+All Rights Reserved.
+</p>
+
+</footer>
+
+</div>
+<!-- End Dashboard -->
+
+<!-- Receipt Modal -->
 <div id="receiptModal" class="receipt-modal">
 
-    <div class="receipt-box">
+<div class="receipt-box">
 
-        <h2>Transfer Successful</h2>
+<h2>Transfer Successful</h2>
 
-        <p id="receiptReceiver"></p>
+<p id="receiptReceiver"></p>
 
-        <p id="receiptAmount"></p>
+<p id="receiptAmount"></p>
 
-        <p id="receiptRef"></p>
+<p id="receiptRef"></p>
 
-        <button onclick="closeReceipt()">
-            Close
-        </button>
+<button onclick="closeReceipt()">
+Close
+</button>
 
-    </div>
+</div>
 
-</div>    
+</div>
+
+<!-- JavaScript -->
+<script type="module" src="app.js"></script>
+
 </body>
+
 </html>
