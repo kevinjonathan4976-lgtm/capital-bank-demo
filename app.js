@@ -327,7 +327,7 @@ notifications.push({
 title: "Transfer Successful",
 
 message:
-"₦" +
+"$" +
 amount.toLocaleString() +
 " was sent to " +
 receiver,
