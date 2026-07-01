@@ -319,6 +319,28 @@ window.transferMoney = async function () {
 
   alert("Transfer Successful");
 
+  let notifications =
+JSON.parse(localStorage.getItem("notifications")) || [];
+
+notifications.push({
+
+title: "Transfer Successful",
+
+message:
+"₦" +
+amount.toLocaleString() +
+" was sent to " +
+receiver,
+
+date:
+new Date().toLocaleString()
+
+});
+
+localStorage.setItem(
+"notifications",
+JSON.stringify(notifications)
+);
   window.location.href = "dashboard.html";
 };
 
