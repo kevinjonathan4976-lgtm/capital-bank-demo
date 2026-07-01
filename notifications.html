@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="loadNotifications()">
 
 <div class="container">
 
@@ -15,7 +15,13 @@
 
 <div class="bank-card">
 
-<h3>🔔 Recent Notifications</h3>
+<h2>Recent Notifications</h2>
+
+<ul id="notificationList"></ul>
+
+<button onclick="window.location.href='dashboard.html'">
+← Back to Dashboard
+</button>
 
 <ul class="activity-feed">
 
